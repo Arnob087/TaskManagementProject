@@ -45,8 +45,8 @@ export class TasksService {
     return this.taskRepo.delete(id);
   }
 
-  findByUserId(userId: number) {
-    return this.taskRepo.find({ where: { user: {id: userId} } });
+  async findByUserId(userId: number) {
+    return  await this.taskRepo.find({ where: { user: {id: userId} } }) || [];
   }
 
   async findByMonth(month: string, userId: number) {

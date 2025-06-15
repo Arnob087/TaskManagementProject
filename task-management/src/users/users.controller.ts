@@ -5,12 +5,12 @@ import { JwtAuthGuard } from 'src/auth/jwtauth.guard';
 import { Role } from './Users.entity';
 import { Roles, RolesGuard } from 'src/auth/roles.gaurd';
 
-@UseGuards(JwtAuthGuard,RolesGuard)
+//@UseGuards(JwtAuthGuard,RolesGuard)
 @Controller('users')
 export class UsersController {
   constructor(private readonly usersService: UsersService) {}
 
-  @Roles(Role.ADMIN)
+  //@Roles(Role.ADMIN)
   @Post()
   create(@Body() dto: CreateUserDto) {
     return this.usersService.create(dto);
